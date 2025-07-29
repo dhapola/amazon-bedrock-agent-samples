@@ -18,6 +18,7 @@ import QuestionAnswerOutlinedIcon from "@mui/icons-material/QuestionAnswerOutlin
 import PsychologyRoundedIcon from "@mui/icons-material/PsychologyRounded";
 import TableRowsRoundedIcon from "@mui/icons-material/TableRowsRounded";
 import AnswerDetailsDialog from "./AnswerDetailsDialog.js";
+import { alpha } from "@mui/material/styles";
 import { WELCOME_MESSAGE, MAX_LENGTH_INPUT_SEARCH } from "../env";
 import MyChart from "./MyChart.js";
 import Answering from "./Answering.js";
@@ -135,7 +136,7 @@ const Chat = ({ userName = "Guest User" }) => {
           totalOutputTokens,
           runningTraces,
           queryUuid,
-          countRationals
+          countRationals,
         };
 
         const queryResults = await getQueryResults(queryUuid);
@@ -568,7 +569,9 @@ const Chat = ({ userName = "Guest User" }) => {
                         mb: 1.5,
                         mr: 1,
                         boxShadow: "rgba(0, 0, 0, 0.05) 0px 4px 12px",
-                        background: "#A4E9DB",
+                        background: `linear-gradient(to right, 
+                  ${alpha(theme.palette.primary.light, 0.5)}, 
+                  ${alpha(theme.palette.primary.main, 0.5)})`,
                       })}
                     >
                       <Typography variant="body1">{answer.query}</Typography>
@@ -603,15 +606,30 @@ const Chat = ({ userName = "Guest User" }) => {
           >
             <div style={{ width: "100%" }}>
               <img
-                src="/images/Arch_Amazon-Bedrock_64.png"
+                src="/images/amazon_bedrock_agents.png"
                 alt="Agents for Amazon Bedrock"
+                height={128}
               />
-              <Typography variant="h5" sx={{ pb: 1, fontWeight: 500 }}>
+              <Typography
+                variant="h5"
+                sx={(theme) => ({
+                  pb: 1,
+                  fontWeight: 500,
+                  background: `linear-gradient(to right, 
+                  ${theme.palette.text.primary}, 
+                  ${theme.palette.primary.dark}, 
+                  ${theme.palette.text.primary})`,
+                  backgroundClip: "text",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  textFillColor: "transparent",
+                })}
+              >
                 Agents for Amazon Bedrock
               </Typography>
               <Typography sx={{ pb: 4, fontWeight: 400 }}>
-                Enable generative AI applications to execute multi step business
-                tasks using natural language.
+                Fully managed service enabling generative AI applications to
+                execute multi-step business tasks using natural language.
               </Typography>
               <Typography
                 color="primary"
@@ -633,10 +651,32 @@ const Chat = ({ userName = "Guest User" }) => {
           display: "flex",
           alignItems: "center",
           boxShadow:
-            "rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 24px, rgba(17, 17, 26, 0.05) 0px 16px 56px",
-          border: 1,
-          borderColor: "divider",
+            "rgba(20, 40, 60, 0.06) 0px 4px 16px, rgba(20, 40, 60, 0.04) 0px 8px 24px, rgba(20, 40, 60, 0.03) 0px 16px 56px",
           borderRadius: 6,
+          position: "relative",
+          // Remove the default border
+          border: "none",
+          // Add gradient border using pseudo-element
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            borderRadius: 6,
+            padding: "1px", // This creates the border thickness
+            background: `linear-gradient(to right, 
+                    ${theme.palette.divider}, 
+                    ${alpha(theme.palette.primary.main, 0.3)}, 
+                    ${theme.palette.divider})`,
+            mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            maskComposite: "xor",
+            WebkitMask:
+              "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            zIndex: -1,
+          },
         })}
       >
         <Box sx={{ pt: 1.5, pl: 0.5 }}>

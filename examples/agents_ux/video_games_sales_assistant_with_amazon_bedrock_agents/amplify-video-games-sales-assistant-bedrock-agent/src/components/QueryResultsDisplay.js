@@ -99,7 +99,7 @@ const QueryResultsDisplay = ({ index, answer }) => {
                   label={`Result Set ${x + 1}`}
                   color="primary"
                   size="small"
-                  sx={{ mr: 1, fontWeight: 500 }}
+                  sx={{ mr: 1, fontWeight: 500, color: "white" }}
                 />
                 <Typography variant="subtitle1" fontWeight="medium">
                   {hasResults
