@@ -83,6 +83,8 @@ The deployment consists of two main steps:
 
 The following images showcase a conversational experience analysis that includes: natural language answers, the reasoning process used by the LLM to generate SQL queries, the database records retrieved from those queries, and the resulting chart visualizations.
 
+![Video Games Sales Assistant](./images/preview.png)
+
 - **Conversational interface with an agent responding to user questions**
 
 ![Video Games Sales Assistant](./images/preview1.png)

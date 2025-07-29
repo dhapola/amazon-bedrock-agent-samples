@@ -131,6 +131,8 @@ Try these sample questions to test the assistant:
 
 Congratulations! Your Data Analyst Assistant can provide you with the following conversational experience:
 
+![Video Games Sales Assistant](../images/preview.png)
+
 - **Conversational interface with an agent responding to user questions**
 
 ![Video Games Sales Assistant](../images/preview1.png)

@@ -15,7 +15,9 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import { alpha } from "@mui/material/styles";
 import Chat from "./Chat";
+
 import { APP_NAME } from "../env";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -65,7 +67,22 @@ function LayoutApp() {
         position="static"
         color="default"
         elevation={0}
-        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+        sx={{
+          background: "#f8f9fa",
+          position: "relative",
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "1px",
+            backgroundImage: (theme) => `linear-gradient(to right, 
+                                  ${theme.palette.divider}, 
+                                  ${alpha(theme.palette.primary.main, 0.3)}, 
+                                  ${theme.palette.divider})`,
+          },
+        }}
       >
         <Toolbar sx={{ flexWrap: "wrap", p: 1, m: 0 }}>
           <Typography
@@ -78,7 +95,14 @@ function LayoutApp() {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "inline" } }}>
             <Chip
-              sx={{ border: 0, fontSize: "0.95em" }}
+              sx={{
+                border: 0,
+                fontSize: "0.95em",
+                color: (theme) => theme.palette.primary.dark, // Sets text color to primary dark
+                "& .MuiChip-icon": {
+                  color: (theme) => theme.palette.primary.dark, // Sets icon color to primary dark
+                },
+              }}
               label={userName}
               variant="outlined"
               icon={<SentimentSatisfiedAltIcon />}
@@ -86,7 +110,7 @@ function LayoutApp() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Container disableGutters maxWidth="lg" component="main">
+      <Container disableGutters maxWidth="xl" component="main">
         <Chat userName={userName} />
       </Container>
       <Box textAlign={"center"}>
@@ -112,7 +136,7 @@ function LayoutApp() {
         open={open}
         onClose={handleClose}
       >
-        <DialogTitle>Amazon Bedrock</DialogTitle>
+        <DialogTitle>Data Analyst Assistant Architecture Diagram</DialogTitle>
         <DialogContent>
           <img
             src="/images/gen-ai-assistant-diagram.png"
