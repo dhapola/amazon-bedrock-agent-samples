@@ -2,7 +2,9 @@
 
 This solution provides a Generative AI application reference that allows users to interact with data through a natural language interface. The solution connects Amazon Bedrock Agents to a PostgreSQL database, providing data analysis capabilities through a Web Application interface.
 
-![Video Games Sales Assistant](./images/preview.png)
+<div align="center">
+<img src="./images/data-analyst-assistant-amazon-bedrock-agents.gif" alt="Conversational Data Analyst Assistant Solution with Amazon Bedrock Agents">
+</div>
 
 🤖 A Data Analyst Assistant offers an approach to data analysis that enables enterprises to interact with their structured data through natural language conversations rather than complex SQL queries. This kind of assistant provides an intuitive question-answering for data analysis conversations and can be improved by offering data visualizations to enhance the user experience.
 
@@ -69,7 +71,7 @@ The **user interaction workflow** operates as follows:
 The deployment consists of two main steps:
 
 1. **Generative AI Application** - [Data Source and Amazon Bedrock Agent Deployment with AWS SAM](./sam-bedrock-video-games-sales-assistant/)
-2. **Front-End Implementation** - [Integrating Amazon Bedrock Agent with a Ready-to-Use Data Analyst Assistant Application](./amplify-video-games-sales-assistant-sample/)
+2. **Front-End Implementation** - [Integrating Amazon Bedrock Agent with a Ready-to-Use Data Analyst Assistant Application](./amplify-video-games-sales-assistant-bedrock-agent/)
 
 > [!NOTE]
 > *It is recommended to use the Oregon (us-west-2) or N. Virginia (us-east-1) regions to deploy the application.*
@@ -80,6 +82,8 @@ The deployment consists of two main steps:
 ## Application Features
 
 The following images showcase a conversational experience analysis that includes: natural language answers, the reasoning process used by the LLM to generate SQL queries, the database records retrieved from those queries, and the resulting chart visualizations.
+
+![Video Games Sales Assistant](./images/preview.png)
 
 - **Conversational interface with an agent responding to user questions**
 
